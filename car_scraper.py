@@ -14,7 +14,7 @@ def create_search_url(make, model):
 def run_scraper():
     make, model = get_user_input()
     web = create_search_url(make, model)
-    path = r'c:/Users/troya/Downloads/CarScraper2/chromedriver.exe'
+    path = 'chromedriver.exe'  # Updated to use local chromedriver
 
     print(f"\nStarting scraper for {make.upper()} {model.upper()}...")
     scraper = CarScraper(web, path)

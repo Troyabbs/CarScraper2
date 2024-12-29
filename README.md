@@ -19,7 +19,6 @@ python car_scraper.py
 - Scrapes car listings from TradeMe
 - Extracts title, price, and location information
 - Saves data to a CSV file
-- Includes rate limiting to be respectful to TradeMe's servers
 - Error handling for robust operation
 
 ## Output
@@ -28,8 +27,9 @@ The script will create a CSV file named `trademe_cars.csv` containing the scrape
 - title
 - price
 - location
-- scraped_date
+- kilometers
+- link
 
 ## Note
 
-Please be mindful of TradeMe's terms of service and robots.txt when using this scraper. Adjust the sleep time between requests if needed.
+Adjust the sleep time between requests and minimum price if needed.

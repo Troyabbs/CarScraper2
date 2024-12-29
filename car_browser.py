@@ -13,10 +13,16 @@ class CarScraper:
         self.driver = None
 
     def start_driver(self):
-        options = Options()
-        options.add_argument("--headless")
-        service = Service(executable_path=self.driver_path)
-        self.driver = webdriver.Chrome(service=service, options=options)
+        # Configure Chrome options to suppress logging
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        chrome_options.add_argument('--log-level=3')  # Only show fatal errors
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--disable-software-rasterizer')
+
+        # Initialize the driver with our options
+        self.driver = webdriver.Chrome(service=Service(self.driver_path), options=chrome_options)
 
     def clean_price(self, price_str):
         """Convert price string to number, removing '$' and ','"""
